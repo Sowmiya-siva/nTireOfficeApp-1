@@ -107,8 +107,8 @@ export class PmsdashboardPage implements OnInit {
     const header = new Headers();
     header.append("Content-Type", "application/json");
 
-    let options = new HttpHeaders().set('Content-Type', 'application/json');
-    this.http.get(this.Ipaddressservice.ipaddress1 + this.Ipaddressservice.serviceurlCams + 'camscategorycount/' + this.userid).subscribe(resp => {
+    let options = new HttpHeaders().set('Content-Type', 'application/json');     
+    this.http.get(this.Ipaddressservice.ipaddress1 + this.Ipaddressservice.serviceurlProperty + ' customerpayments?strfunction=1&branch=1&userid=1').subscribe(resp => {
       debugger
       this.result = resp;
 

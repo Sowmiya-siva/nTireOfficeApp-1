@@ -22,6 +22,7 @@ export class IpaddressService {
   public serviceurlCamsNode;
   public serviceerpapi;
   public serviceurlSales;
+  public serviceurlProperty;
   constructor() {
 
     //  this.ipaddress1 = "http://demo.herbie.ai";
@@ -34,7 +35,7 @@ export class IpaddressService {
     // this.ipaddress1 = "http://prod.herbie.ai";
     // this.ipaddress ="https://prod.herbie.ai:8033";
 
-     this.ipaddress1 = "https://demo.herbie.ai";
+    this.ipaddress1 = "https://demo.herbie.ai";
     this.ipaddress = "https://demo.herbie.ai";
 
     // ICRISAT
@@ -70,7 +71,7 @@ export class IpaddressService {
     this.getLoginLink = '/nTireMobileCoreAPI/api/Login';
     this.serviceurllos = "/los/LOS/";
 
-//Cams
+    //Cams
 
     // this.serviceurlCamsNode = "/dms/DMS/cams_hrms_sales"
     // this.serviceurlCams = "/SSGmobileapi/cams/cams.svc/"
@@ -82,10 +83,14 @@ export class IpaddressService {
     //Procurement
     // this.serviceerpapi = "/dms/DMS/erpapi/";
     this.serviceerpapi = "/nTireMobileCoreAPI/api/ERP/"
+
+    
+    // Property
+
+    this.serviceurlProperty = "/nTireMobileCoreAPI/api/Property/"
+
+
   }
-
-
-
 
 
 }

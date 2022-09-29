@@ -498,7 +498,7 @@ this.backbutton();
   getGreetings(){
     var get_obj={
 
-      userid:this.userid,
+      userid:parseInt(this.userid),
       usertoken:this.usertoken,
       access_token:this.token
 }
