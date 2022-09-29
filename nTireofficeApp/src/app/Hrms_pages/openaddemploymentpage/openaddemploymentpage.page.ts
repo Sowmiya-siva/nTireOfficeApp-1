@@ -14,7 +14,7 @@ import {ModalController} from '@ionic/angular';
 export class OpenaddemploymentpagePage implements OnInit {
   employmentdetails=[];
   // Designation=[];
-  Designationresp=[];
+  Designationresp:any=[];
   tempID: string;
   addCareerObject={
     empID:'',
@@ -70,8 +70,8 @@ this.designation1="";
   loadDesignation() {
 
 
-      this.HttpRequest.GetRequest(this.Ipaddressservice.ipaddress1 +this.Ipaddressservice.serviceurlhrms+"CommonDropdown/"+ window.localStorage['FUNCTION_ID']+  "/" + "Designation"+ "/" + "0/"+"0"+"/0").then(resp=>{
-        this.Designationresp = JSON.parse(resp.toString());
+      this.HttpRequest.GetRequest(this.Ipaddressservice.ipaddress1 +this.Ipaddressservice.serviceurlhrms+"/CommonDropdown/" + "Designation"+ "/" + "0/"+"0"+"/0").then(resp=>{
+        this.Designationresp = resp;
         if(this.item!=undefined){
           for(var i=0; i<this.Designationresp.length; i++){
 
@@ -123,6 +123,7 @@ console.log(""+JSON.stringify(this.addCareerObject))
 
 
   this.HttpRequest.GetRequest(this.Ipaddressservice.ipaddress1 +this.Ipaddressservice.serviceurlhrms+"EmployeeUpdate/"+window.localStorage['empid']+'/'+ 'CareerDetails'+"/"+this.addCareerObject.Employer+"/"+this.fromdate+"/"+this.toDate +"/"+this.addCareerObject.Designation+"/"+this.addCareerObject.Salary+"/"+this.addCareerObject.ID+"/"+0+'/'+0).then(resp=>{
+    
     console.log(""+JSON.stringify(resp));
     // console.log(""+JSON.parse(resp))
     console.log(""+resp[0]['Column1']);

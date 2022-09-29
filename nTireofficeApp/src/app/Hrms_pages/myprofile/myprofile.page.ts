@@ -18,6 +18,7 @@ import {ApplicantemploymentdetailsPage} from '../applicantemploymentdetails/appl
 import{OpenAddEducationPage} from'../open-add-education/open-add-education.page';
 import{OpenaddemploymentpagePage} from'../openaddemploymentpage/openaddemploymentpage.page';
 import { ActionSheetController } from '@ionic/angular';
+import { data } from 'jquery';
 
 @Component({
   selector: 'app-myprofile',
@@ -82,8 +83,8 @@ export class MyprofilePage implements OnInit {
   currentAddressObject;
   ContactDetailsObject;
   error;
-  EducationDetails=[];
-  CareerDetails=[];
+  EducationDetails:any=[];
+  CareerDetails:any=[];
   segmentdata;
   dat_valid: { currentDate: Date; };
   validphone: boolean;
@@ -445,7 +446,7 @@ console.log(""+this.profilepic+""+this.image)
 
   getSubQualification(data){
 
-    this.HttpRequest.GetRequest(this.Ipaddressservice.ipaddress1 +this.Ipaddressservice.serviceurlhrms+"/CommonDropdown/"+"SubQualification/"+ "0/"+data+"/0").then(resp=>{
+    this.HttpRequest.GetRequest(this.Ipaddressservice.ipaddress1 +this.Ipaddressservice.serviceurlhrms+"/CommonDropdown/SubQualification/"+ "0/"+data+"/0").then(resp=>{
       this.subQualification = resp;
     }, error => {
 
@@ -456,8 +457,8 @@ console.log(""+this.profilepic+""+this.image)
 
   getEducationDaetails(){
 
-    this.HttpRequest.GetRequest(this.Ipaddressservice.ipaddress1 +this.Ipaddressservice.serviceurlhrms+"CommonDropdown/" + window.localStorage['FUNCTION_ID'] + "/EducationDetails/%20/" + window.localStorage['empid'] + "/0").then(resp=>{
-      this.EducationDetails = JSON.parse(resp.toString());
+    this.HttpRequest.GetRequest(this.Ipaddressservice.ipaddress1 +this.Ipaddressservice.serviceurlhrms+"/CommonDropdown/EducationDetails/" +"0/"+ data+ "/0").then(resp=>{
+      this.EducationDetails = resp;
     }, error => {
 
     console.log("error : "+JSON.stringify(error));
@@ -465,8 +466,8 @@ console.log(""+this.profilepic+""+this.image)
     });
   }
   getcarrierDaetails(){
-    this.HttpRequest.GetRequest(this.Ipaddressservice.ipaddress1 +this.Ipaddressservice.serviceurlhrms+ "CommonDropdown/" + window.localStorage['FUNCTION_ID'] + "/CareerDetails/%20/" + window.localStorage['empid'] + "/0").then(resp=>{
-      this.CareerDetails = JSON.parse(resp.toString());
+    this.HttpRequest.GetRequest(this.Ipaddressservice.ipaddress1 +this.Ipaddressservice.serviceurlhrms+ "/CommonDropdown/CareerDetails/" +"0/"+ data+ "/0").then(resp=>{
+      this.CareerDetails = resp;
     }, error => {
 
     console.log("error : "+JSON.stringify(error));
